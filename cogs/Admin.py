@@ -63,6 +63,9 @@ class Admin(commands.Cog):
 
     ### ADD REASON ?
     ### ERROR HANDLING
+
+    ### ADD CHECKING IF USER IS ACTIVE OR NOT -> TIMEOUTING NONACTIVE USERS     IDK YET
+    ### NEXT UPDATE -> WELCOME STEAM, PLAYING FUNNY BEZIMIENNY AUDIO :333 AAAAANNND MAKE FULL ERROR HANDLER
     
     
 
@@ -100,7 +103,7 @@ class Admin(commands.Cog):
     @has_mute_perm
     async def mute(self, ctx, member:discord.Member, *, reason=None):
         
-        channel = client.get_channel.member
+        channel = member.voice
         
         if channel is not None:
             await member.edit(mute=True, reason=reason)
@@ -108,13 +111,14 @@ class Admin(commands.Cog):
                 await ctx.send(f"User {member} has been muted for {reason}!")
             else:
                 await ctx.send(f"User {member} has been muted!")
+                print(channel)
         else:
-            await ctx.send("ooo")
+            await ctx.send(f"User {member} is not in any voice channel at the moment!")         ### DELETE PRRINTS LATER
             print(channel)
 
     
     @commands.command()
-    @has_mute_perm
+    @has_timeout_perm
     async def timeout(self, ctx, member:discord.Member, *,  reason=None):
         new_time =timedelta(seconds=10)
         await member.timeout(new_time, reason=reason)
