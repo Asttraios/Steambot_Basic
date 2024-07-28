@@ -65,7 +65,7 @@ class Admin(commands.Cog):
     ### ERROR HANDLING
 
     ### ADD CHECKING IF USER IS ACTIVE OR NOT -> TIMEOUTING NONACTIVE USERS     IDK YET
-    ### NEXT UPDATE -> WELCOME STEAM, PLAYING FUNNY BEZIMIENNY AUDIO :333 AAAAANNND MAKE FULL ERROR HANDLER
+    ### NEXT UPDATE -> WELCOMING STEAM, PLAYING FUNNY BEZIMIENNY AUDIO :333 AAAAANNND MAKE FULL ERROR HANDLER
     
     
 
@@ -131,10 +131,8 @@ class Admin(commands.Cog):
     @commands.command()
     @has_kick_perm
     async def test(self, ctx):
-         await ctx.send("it works!")
+         await ctx.send("test")
     
         
-   
-
 async def setup(client):
     await client.add_cog(Admin(client))

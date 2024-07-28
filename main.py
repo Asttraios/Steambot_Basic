@@ -22,7 +22,7 @@ def run():
     async def on_ready():      #function informing about bot being ready to receive commands
         await client.change_presence(activity = discord.Game('Subscribe'))      ## albo activity = discord.Activity(type = discord.ActivityType.listening, name= 'song name') ### activity=discord.Streaming(name='nazwa np. Minecraft', url='link streama np. na YT') jesli na twitch to daje guzik do przeniesienia na twitch
         for extension in cogsExtensions:
-            await client.load_extension(extension)
+            await client.load_extension(extension)          ### extension cogs is already loaded
         print("The bot is ready to work.")
         print("------------------")
     
