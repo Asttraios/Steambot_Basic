@@ -130,7 +130,7 @@ class Admin(commands.Cog):
     
     @commands.command()
     @has_kick_perm
-    async def test(self, ctx):
+    async def test(self, ctx): 
          await ctx.send("test")
     
         
